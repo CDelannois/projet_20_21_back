@@ -3,10 +3,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 //Cross-origin resource sharing (CORS) permet d'autoriser les ressources sur une page web provenant de requêtes depuis un autre domaine hors du domaine d'origine.
 const cors = require('cors');
-const queryPromise=require('./queryPromise')
+const queryPromise = require('./queryPromise')
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 //Middleware
 app.use(bodyParser.urlencoded({
@@ -15,13 +15,13 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 //Controllers
-const membre= require('./controllers/membre');
-const jeux= require('./controllers/jeux');
+const membre = require('./controllers/membre');
+const jeux = require('./controllers/jeux');
 const membreJeux = require("./controllers/membreJeux");
 
 membre(app, queryPromise);
-jeux(app,queryPromise);
-membreJeux(app,queryPromise);
+jeux(app, queryPromise);
+membreJeux(app, queryPromise);
 
 //______________________________________________________________________________Partie lancer l'app__________________________________________________________________________________________
 
