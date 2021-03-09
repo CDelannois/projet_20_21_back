@@ -80,7 +80,7 @@ module.exports = (app, queryPromise) => {
             validateEmail = false;
         }
 
-        if (validator.isAlpha(adresse, "fr-FR", { ignore: " 123456789-+" }) && validator.isLength(adresse, { min: 10, max: 45 })) {
+        if (validator.isAlpha(adresse, "fr-FR", { ignore: " 0123456789-+" }) && validator.isLength(adresse, { min: 10, max: 45 })) {
             validateAdresse = true;
         } else {
             console.log("L'adresse ne peut comporter de caractères spéciaux et doit faire entre 10 et 45 caractères.");
